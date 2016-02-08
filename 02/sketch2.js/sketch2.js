@@ -12,7 +12,7 @@ var time = 0;
 var whichState = 0;
 
 function setup() {
-  creatCanvas(1000, 800);
+  createCanvas(1000, 800);
   background(255);
   //noStroke();
 }
