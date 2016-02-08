@@ -1,60 +1,63 @@
-var myArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-var posX = myArray;
-var posY = myArray;
-var velX = myArray;
-var velY = myArray;
+var posX = 0;
+var posY = 0;
+var sizeX = 100;
+var sizeY = 100;
+var sizeModY;
+var sizeModX;
 
-var c = myArray;
-var size = myArray;
-var accel = myArray;
+var pressed;
+
+var time = 0;
+
+var whichState = 0;
 
 function setup() {
-  createCanvas(800, 600);
+  createCanvas(1000, 800);
   background(255);
-  for (var i = 0; i < myArray; i++) {
-    posX[i] = width / 2;
-    posY[i] = height / 2;
-    velX[i] = random(-5, 5);
-    velY[i] = random(-5, 5);
-    accel[i] = random(0.1, 0.5);
-    c[i] = random(250);
-    size[i] = random(10, 80);
-  }
+  //noStroke();
 }
 
 function draw() {
-  background(255);
+  fill(255, 10);
+  rect(0, 0, 1000, 800);
+
+  time++;
 
 
-  for (var i = 0; i < myArray; i++) {
-    posX[i] += velX[i];
-    posY[i] += velY[i];
-    velY[i] += accel[i];
-
-    noStroke();
-    fill(c[i], i * 30, c[i] * 2, 100);
-    ellipse(posX[i], posY[i], size[i], size[i]);
-
-    if (posX[i] > width - 100) {
-      velX[i] = -velX[i] * (1 - accel[i]);
-      c[i] = random(250);
-      posX[i] = width / 2;
-      posY[i] = height / 2;
-    } else if (posX[i] < 100) {
-      posX[i] = width / 2;
-      posY[i] = height / 2;
-      velX[i] = -velX[i] * (1 - accel[i]);
-      c[i] = random(250);
+  for (var i = 0; i < 30; i++) {
+    for (var j = 0; j < 30; j++) {
+      ellipse(posX + 400 * i, posY + 375 * j, sizeX +  sizeModX, sizeY + sizeModY);
     }
+  }
 
-    if (posY[i] > height) {
-      velY[i] = -velY[i] * (1 - accel[i]);
-      posX[i] = width / 2;
-      posY[i] = height / 2;
-    } else if (posY[i] < 0) {
-      posX[i] = width / 2;
-      posY[i] = height / 2;
-      velY[i] = -velY[i] * (1 - accel[i]);
+  if (whichState == 0) {
+    posX = sin(time * 0.1) * 10;
+    posY = cos(time * 0.1) * 10;
+    sizeModY = map(posY, 0, height, 0, 1000);
+    sizeModX = map(posX, 0, width, 0, 1000);
+    sizeX = 100;
+    sizeY = 100;
+    
+  }
+  if (whichState == 1) {
+    posX = cos(time * 0.1) * 100;
+    posY = sin(time * 0.1) * 50;
+    sizeModY = map(posY, 0, height, 0, 500);
+    sizeModX = map(posX, 0, width, 0, 100);
+  }
+  if (whichState == 2) {
+    posX = cos(time * 0.1) * 100;
+    posY = sin(time * 0.1) * 100;
+    sizeX = 1000;
+    sizeY = 1000;
+  }
+}
+
+function keyPressed() {
+  if (key == ' ') {
+    whichState++;
+    if (whichState > 2) {
+      whichState = 0;
     }
   }
 }
