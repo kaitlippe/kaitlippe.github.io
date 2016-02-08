@@ -1,12 +1,12 @@
 var myArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-var posX = new int[myArray];
-var posY = new int[myArray];
-var velX = new float[myArray];
-var velY = new float[myArray];
+var posX = myArray;
+var posY = myArray;
+var velX = myArray;
+var velY = myArray;
 
-var c = new float[myArray];
-var size = new float[myArray];
-var accel = new float[myArray];
+var c = myArray;
+var size = myArray;
+var accel = myArray;
 
 function setup() {
   createCanvas(800, 600);
