@@ -10,8 +10,8 @@ function setup() {
 
  	for (var n = 0; n <= poemSplit.length; n += 1) {
  		if ( n % 4 == 0){
- 			console.log(poemSplit[add + array[add]]);
- 			add++;
+ 			console.log(poemSplit[count + array[count]]);
+ 			count++;
  		}
  	}
 }
