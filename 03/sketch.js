@@ -8,7 +8,7 @@ function setup() {
 
  	for (var n = 0; n <= poemSplit.length; n += 1) {
  		if ( poemSplit % 4 == 0){
- 			console.log(poem.split(" ", n))
+ 			console.log("no")
  		}
  	}
 }
