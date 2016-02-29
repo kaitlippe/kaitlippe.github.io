@@ -1,3 +1,5 @@
+//i wanted to have text generate when a bubble is clicked but i couldnt get it to work nor the intersection
+
 var bubbles = [];
 var p;
 var myText;
