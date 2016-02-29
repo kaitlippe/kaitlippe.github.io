@@ -37,13 +37,14 @@ function draw() {
 function Bubble() {
   this.x = random(0, width);
   this.y = random(0, height);
+  this.a = 150;
   this.velX = random(-5, 5);
   this.velY = random(-5, 5);
   this.text1 = 'hello';
   this.text2 = 'goodbye';
 
   this.display = function() {
-    fill(0, 50);
+    fill(this.a, 50);
     ellipse(this.x, this.y, 50, 50);
   };
 
@@ -51,10 +52,12 @@ function Bubble() {
     if (this.x >= width - 25 || this.x <= 25) {
       this.velX = -this.velX;
       myText += this.text1;
+      this.a = random(30, 140);
     }
-    if (this.y >= width - 25 || this.y <= 25) {
+    if (this.y >= height - 25 || this.y <= 25) {
       this.velY = -this.velY;
       myText += this.text2;
+      this.a = random(160, 255);
     }
     this.x += this.velX;
     this.y += this.velY;
