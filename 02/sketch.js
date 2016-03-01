@@ -12,8 +12,8 @@ var time = 0;
 var whichState = 0;
 
 function setup() {
-  createCanvas(1000, 800);
-  background(255);
+  createCanvas(windowWidth, windowHeight);
+  // background(255);
   //noStroke();
 }
 
