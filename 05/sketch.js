@@ -4,7 +4,7 @@ var button;
 var theText;
 
 function setup() {
-  createCanvas(800, 500);
+  createCanvas(windowWidth, windowHeight);
 
   input = select('#textinput');
   button = select('#thebutton');
@@ -15,8 +15,7 @@ function setup() {
   dropzone.drop(gotFile, unhighlight);
 }
 
-function draw() {
-}
+function draw() {}
 
 function highlight() {
   dropzone.style('background', '#f5f8f8');
@@ -41,23 +40,23 @@ function handleInput() {
 }
 
 function processText(data) {
-  if(data.length === 0){
+  if (data.length === 0) {
     alert("nothing was entered, try again");
   } else {
     var totalWords = 0;
     var totalRepeat = 0;
-    
+
     var delimiters = '. !?;#%$&*()@:,/';
     var words = splitTokens(data, delimiters);
-    for (var i = 0; i < words.length; i++){
+    for (var i = 0; i < words.length; i++) {
       var word = words[i];
       words.sort(words, words.length)
       totalWords++;
     }
-    
+
     var report = "";
     report += "total words: " + totalWords + "<br>";
-    
+
     var finishedResults = createP(report); //why wont it show in the canvas ?
     console.log(report);
   }
@@ -68,7 +67,7 @@ function processText(data) {
 //   var words = data.split(' '),
 //   var sorted = words.sort(),
 //   var totalWords = 0;
-  
+
 //   for (var i = 0; i < sorted.length; i++){
 //     var current = sorted[i];
 //     if (current === sorted[i+1]){
@@ -77,6 +76,3 @@ function processText(data) {
 //     console.log(totalWords);
 //   }
 // }
-
-
-
