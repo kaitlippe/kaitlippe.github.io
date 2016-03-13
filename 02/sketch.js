@@ -13,8 +13,8 @@ var whichState = 0;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  // background(255);
-  //noStroke();
+  background(255);
+  // noStroke();
 }
 
 function draw() {

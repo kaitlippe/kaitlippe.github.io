@@ -54,7 +54,7 @@ function processText(data) {
       totalWords++;
     }
 
-    var report = "";
+    var report = " ";
     report += "total words: " + totalWords + "<br>";
 
     var finishedResults = createP(report); //why wont it show in the canvas ?
