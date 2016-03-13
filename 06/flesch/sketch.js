@@ -12,7 +12,8 @@ var dropzone, input, button;
 var theText;
 
 function setup() {
-  noCanvas();
+  createCanvas(windowWidth, windowHeight);
+  console.log("MOUSEPRESSED WONT WORK ANYMORE ?")
   
   input = select('#textinput');
   button = select('#submit');
