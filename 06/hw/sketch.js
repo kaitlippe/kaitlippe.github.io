@@ -12,6 +12,7 @@ function setup() {
 	dropzone.dragOver(highlight);
 	dropzone.dragLeave(unhighlight);
 	dropzone.drop(gotFile, unhighlight);
+	
 }
 
 function draw() {
@@ -45,9 +46,9 @@ function translateText(data) {
 		alert("Nothing was entered. Please try again.")
 		console.log(data.length);
 	} else {
-		var newTxt = data.replace(/love/gi, "🚫").replace(/hate|mad|angry/gi,"💗").replace(/happy|excited|smile|smiling/,"😢").replace(/sad|mad/gi, "😃");
-		console.log(newTxt);
+		var newTxt = data.replace(/love/gi, "🚫").replace(/hate|mad|angry/gi,"💗").replace(/happy|excited|smile|smiling/,"😢").replace(/sad|mad/gi, "😃").replace(/woman|girl|lady|female/gi, "👨").replace(/man|male|guy|men/, "👩");
 		var endResults = createP(newTxt);
+		console.log(newTxt);
 	}
 }
 
