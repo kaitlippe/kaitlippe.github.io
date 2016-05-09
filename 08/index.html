@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>code2_day08</title>
+    <script src="libraries/p5.js" type="text/javascript"></script>
+
+    <script src="libraries/p5.dom.js" type="text/javascript"></script>
+    <script src="libraries/p5.sound.js" type="text/javascript"></script>
+
+    <script src="sketch.js" type="text/javascript"></script>
+
+    <style> 
+    	body {
+    		padding: 0px 20px;
+			margin: 0px auto;
+			text-align: center;
+			width: 500px;
+    	} 
+    
+   	h1 {
+      text-transform: uppercase;
+      font: sans-serif;
+      letter-spacing: 5px;
+      color: #9bbabf;
+      text-align: center;
+    }
+    
+   	p {
+      color: #9bbabf;
+      letter-spacing: 5px;
+    	margin-left: auto;
+    	margin-right: auto
+    }
+    
+   	#city {
+      	width: 200px;
+			height: 20px;
+			padding: auto;
+			border-radius: 20px;
+			border-style: solid;
+			border-width: 2px;
+			letter-spacing: 3px;
+			text-align: center;
+      }
+      #submit {
+      	width: 80px;
+			padding: 20px auto;
+			border-radius: 15px;
+			margin: 10px;
+      }
+      </style>
+  </head>
+  <body>
+  	<p>To find out the current weather</p>
+    <h1>Enter a city:</h1> 
+    <p>
+    	<input id = "city" value = " ">
+    	<button id = "submit">Submit</button>
+    </p>
+  </body>
+</html>
