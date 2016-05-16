@@ -39,17 +39,17 @@ var cityTemp;
 //WEATHER
 function getWeather(data) {
 	weatherJSON = data;
-	// cityHeader.html(weatherJSON.name);
+	cityHeader.html(weatherJSON.name);
 	cityDescr.html(weatherJSON.weather[0].description);
 	cityTemp.html(weatherJSON.main.temp + "degrees C");
 }
 
 function askWeather() {
-	// cityQuery = "New York";
-	// var theURI = baseURI + cityQuery + unitsQuery + apiKey;
-	// loadJSON(theURI, getWeather);
+	cityQuery = "New York";
+	var theURI = baseURI + cityQuery + unitsQuery + apiKey;
+	loadJSON(theURI, getWeather);
 	// giphyQuery = "&q=" + cityQuery;
-	// var url = baseGiphy + giphyApiKey + giphyQuery;
+	// var url = baseGiphy + giphyApiKey + gsiphyQuery;
 	// loadJSON(url, giphyData);
 }
 
@@ -58,10 +58,6 @@ function tweetEvent(eventMsg) {
 	var replyto = eventMsg.in_reply_to_screen_name;
 	var text = eventMsg.text;
 	var from = eventMsg.user.screen_name;
-	
-	cityQuery = "New York";
-	var theURI = baseURI + cityQuery + unitsQuery + apiKey;
-	loadJSON(theURI, getWeather);
 
 
 	//see if reply is to GiphyWeather
@@ -109,7 +105,6 @@ function tweetIt(txt) {
 		}
 	}
 }
-
 
 //WEATHER AND GIPHY
 // function setup() {
