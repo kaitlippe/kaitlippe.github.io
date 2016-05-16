@@ -1,0 +1,21 @@
+{
+  "name": "final",
+  "version": "1.0.0",
+  "description": "final project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "final",
+    "project",
+    "code"
+  ],
+  "author": "Kait Lippe",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "twit": "^2.2.4"
+  }
+}

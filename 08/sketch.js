@@ -6,7 +6,7 @@ var unitsQuery = "&units=metric";
 
 var baseGiphy = "http://api.giphy.com/v1/gifs/search?";
 var giphyApiKey = "&api_key=dc6zaTOxFJmzC";
-var giphyQuery = "&q=" + cityQuery;
+var giphyQuery = "&q=" + cityDescr;
 
 var apiKey = "&appid=a8b35013c0263b6ec52bb3daa41e3be7";
 
@@ -38,7 +38,7 @@ function askWeather() { //function to callback to getWeather
 	console.log(cityQuery);
 	var theURI = baseURI + cityQuery + unitsQuery + apiKey;
 	loadJSON(theURI, getWeather);
-	giphyQuery = "&q=" + cityQuery;
+	giphyQuery = "&q=" + cityDescr;
  	var url = baseGiphy + giphyApiKey + giphyQuery;
 	loadJSON(url, giphyData);
 }
@@ -47,13 +47,16 @@ function getWeather(data) {
 	weatherJSON = data;
 
 	cityHeader.html(weatherJSON.name);
-	cityDescr.html(weatherJSON.weather[0].description); 
+	cityDescr.html(weatherJSON.weather.description); 
 	cityTemp.html(weatherJSON.main.temp + "degrees C");
+	
+		console.log(cityDescr.html(weatherJSON.weather[0].description));
+
 }
 
 function giphyData(giphy){
 	  for (var i = 0; i < giphy.data.length; i++) {
-    createImg(giphy.data[i].images.original.url);
+    createImg(giphy.data[0].images.original.url);
   }
 }
 
