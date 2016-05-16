@@ -62,7 +62,7 @@ function tweetEvent(eventMsg) {
 
 	//see if reply is to GiphyWeather
 	if (replyto === 'GiphyWeather') {
-		var newtweet = '@' + from + ' There is ' + cityDescr;
+		var newtweet = '@' + from + ' There is ' + look();
 		tweetIt(newtweet);
 	}
 
@@ -104,6 +104,11 @@ function tweetIt(txt) {
 			console.log("it works");
 		}
 	}
+}
+
+function look() {
+	cityDescr;
+	cityTemp;
 }
 
 //WEATHER AND GIPHY
