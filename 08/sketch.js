@@ -40,8 +40,8 @@ function getWeather(data) {
 	descr = cityDescr.html(weatherJSON.weather.description); 
 	cityTemp.html(weatherJSON.main.temp + "degrees C");
 	descr = createP("");
+	console.log(descr);
 	console.log(cityDescr.html(weatherJSON.weather[0].description));
-	console.log(cityTemp.html(weatherJSON.main.temp + "degrees C"));
 }
 
 function askWeather() { //function to callback to getWeather
@@ -55,7 +55,6 @@ function askWeather() { //function to callback to getWeather
 }
 
 function giphyData(giphy){
-	console.log(descr);
 	// for (var i = 0; i < giphy.data.length; i++) {
 		createImg(giphy.data[0].images.original.url);
 	// }
