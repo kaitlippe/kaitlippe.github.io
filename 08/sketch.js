@@ -18,6 +18,7 @@ var field;
 var cityHeader;
 var cityDescr;
 var cityTemp;
+var descr;
 
 
 function setup() {
@@ -37,9 +38,9 @@ function getWeather(data) {
 	weatherJSON = data;
 
 	cityHeader.html(weatherJSON.name);
-	cityDescr.html(weatherJSON.weather.description); 
+	descr = cityDescr.html(weatherJSON.weather.description); 
 	cityTemp.html(weatherJSON.main.temp + "degrees C");
-	giphyQuery = "&q=" + cityDescr.html(weatherJSON.weather.description);
+	
 	console.log(cityDescr.html(weatherJSON.weather[0].description));
 }
 
@@ -48,7 +49,7 @@ function askWeather() { //function to callback to getWeather
 	console.log(cityQuery);
 	var theURI = baseURI + cityQuery + unitsQuery + apiKey;
 	loadJSON(theURI, getWeather);
-	// giphyQuery = "&q=" + cityDescr.html(weatherJSON.weather.description);
+	giphyQuery = "&q=" + descr;
  	var url = baseGiphy + giphyApiKey + giphyQuery;
 	loadJSON(url, giphyData);
 }
