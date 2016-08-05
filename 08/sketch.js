@@ -50,14 +50,14 @@ function getWeather(data) {
 	cityDescr.html(weatherJSON.weather.description); 
 	cityTemp.html(weatherJSON.main.temp + "degrees C");
 	
-		console.log(cityDescr.html(weatherJSON.weather[0].description));
+	console.log(cityDescr.html(weatherJSON.weather[0].description));
 
 }
 
 function giphyData(giphy){
-	  for (var i = 0; i < giphy.data.length; i++) {
-    createImg(giphy.data[0].images.original.url);
-  }
+	for (var i = 0; i < giphy.data.length; i++) {
+		createImg(giphy.data[0].images.original.url);
+	}
 }
 
 function draw() {
