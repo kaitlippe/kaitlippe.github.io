@@ -6,7 +6,7 @@ var unitsQuery = "&units=metric";
 
 var baseGiphy = "http://api.giphy.com/v1/gifs/search?";
 var giphyApiKey = "&api_key=dc6zaTOxFJmzC";
-var giphyQuery = "&q=" + cityDescr;
+// var giphyQuery = "&q=" + cityDescr;
 
 var apiKey = "&appid=a8b35013c0263b6ec52bb3daa41e3be7";
 
@@ -33,16 +33,6 @@ function setup() {
 	button.mousePressed(askWeather); //callback to function
 }
 
-function askWeather() { //function to callback to getWeather
-	cityQuery = field.value();
-	console.log(cityQuery);
-	var theURI = baseURI + cityQuery + unitsQuery + apiKey;
-	loadJSON(theURI, getWeather);
-	giphyQuery = "&q=" + cityDescr;
- 	var url = baseGiphy + giphyApiKey + giphyQuery;
-	loadJSON(url, giphyData);
-}
-
 function getWeather(data) {
 	weatherJSON = data;
 
@@ -52,6 +42,16 @@ function getWeather(data) {
 	
 	console.log(cityDescr.html(weatherJSON.weather[0].description));
 
+}
+
+function askWeather() { //function to callback to getWeather
+	cityQuery = field.value();
+	console.log(cityQuery);
+	var theURI = baseURI + cityQuery + unitsQuery + apiKey;
+	loadJSON(theURI, getWeather);
+	giphyQuery = "&q=" + cityDescr;
+ 	var url = baseGiphy + giphyApiKey + giphyQuery;
+	loadJSON(url, giphyData);
 }
 
 function giphyData(giphy){
