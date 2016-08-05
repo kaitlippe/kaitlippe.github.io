@@ -44,7 +44,7 @@ function getWeather(data) {
 
 	console.log(cityDescr.html(weatherJSON.weather[0].description));
 	
-	giphyQuery = "&q=" + cityDescr;
+	giphyQuery = "&q=" + cityDescr.html(weatherJSON.weather.description);
  	var url = baseGiphy + giphyApiKey + giphyQuery;
 	loadJSON(url, giphyData);
 	console.log(giphyQuery);
