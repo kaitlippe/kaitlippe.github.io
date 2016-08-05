@@ -49,12 +49,14 @@ function askWeather() { //function to callback to getWeather
 	console.log(cityQuery);
 	var theURI = baseURI + cityQuery + unitsQuery + apiKey;
 	loadJSON(theURI, getWeather);
-	giphyQuery = "&q=" + cityDescr;
+	// giphyQuery = "&q=" + cityDescr;
  	var url = baseGiphy + giphyApiKey + giphyQuery;
 	loadJSON(url, giphyData);
 }
 
 function giphyData(giphy){
+	giphyQuery = "&q=" + cityDescr;
+	console.log(giphyQuery);
 	// for (var i = 0; i < giphy.data.length; i++) {
 		createImg(giphy.data[0].images.original.url);
 	// }
