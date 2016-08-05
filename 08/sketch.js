@@ -43,6 +43,11 @@ function getWeather(data) {
 	cityTemp.html(weatherJSON.main.temp + "degrees C");
 
 	console.log(cityDescr.html(weatherJSON.weather[0].description));
+	
+	giphyQuery = "&q=" + cityDescr;
+ 	var url = baseGiphy + giphyApiKey + giphyQuery;
+	loadJSON(url, giphyData);
+	console.log(giphyQuery);
 }
 
 function askWeather() { //function to callback to getWeather
@@ -50,10 +55,7 @@ function askWeather() { //function to callback to getWeather
 	console.log(cityQuery);
 	var theURI = baseURI + cityQuery + unitsQuery + apiKey;
 	loadJSON(theURI, getWeather);
-	giphyQuery = "&q=" + cityDescr.html(elt.textContent);
- 	var url = baseGiphy + giphyApiKey + giphyQuery;
-	loadJSON(url, giphyData);
-	console.log(giphyQuery);
+
 }
 
 function giphyData(giphy){
