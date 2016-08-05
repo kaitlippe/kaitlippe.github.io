@@ -60,7 +60,7 @@ function askWeather() { //function to callback to getWeather
 
 function giphyData(giphy){
 	// for (var i = 0; i < giphy.data.length; i++) {
-		createImg(giphy.data[0].images.original.url);
+		createImg(giphy.data[random(0,10)].images.original.url);
 	// }
 }
 
