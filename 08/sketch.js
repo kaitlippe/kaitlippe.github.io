@@ -55,13 +55,13 @@ function askWeather() { //function to callback to getWeather
 	console.log(cityQuery);
 	var theURI = baseURI + cityQuery + unitsQuery + apiKey;
 	loadJSON(theURI, getWeather);
-
 }
 
 function giphyData(giphy){
-	for (var i = 0; i < giphy.data.random; i++) {
-		createImg(giphy.data[0].images.original.url);
-	}
+	// for (var i = 0; i < giphy.data.length; i++) {
+	var random = random(0, 10);
+		createImg(giphy.data[random].images.original.url);
+	// }
 }
 
 function draw() {
