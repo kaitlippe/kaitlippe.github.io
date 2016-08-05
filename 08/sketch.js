@@ -6,7 +6,7 @@ var unitsQuery = "&units=metric";
 
 var baseGiphy = "http://api.giphy.com/v1/gifs/search?";
 var giphyApiKey = "&api_key=dc6zaTOxFJmzC";
-var giphyQuery = "clear skies";
+var giphyQuery = "&q=" + "clear skies";
 
 var apiKey = "&appid=a8b35013c0263b6ec52bb3daa41e3be7";
 
