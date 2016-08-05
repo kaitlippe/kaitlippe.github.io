@@ -59,8 +59,7 @@ function askWeather() { //function to callback to getWeather
 
 function giphyData(giphy){
 	// for (var i = 0; i < giphy.data.length; i++) {
-	var r = random(10);
-		createImg(giphy.data[r].images.original.url);
+		createImg(giphy.data[1].images.original.url);
 	// }
 }
 
