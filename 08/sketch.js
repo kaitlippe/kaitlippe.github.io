@@ -25,7 +25,7 @@ function setup() {
 	cityHeader = createElement('h1', "");
 	cityDescr = createP(""); 
 	cityTemp = createP(""); 
-
+	descr = createP("");
 	noCanvas();
 
 	field = select("#city"); //selects s/t in dom lib
