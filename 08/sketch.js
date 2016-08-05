@@ -25,7 +25,6 @@ function setup() {
 	cityHeader = createElement('h1', "");
 	cityDescr = createP(""); 
 	cityTemp = createP(""); 
-	descr = createP("");
 	noCanvas();
 
 	field = select("#city"); //selects s/t in dom lib
@@ -49,6 +48,7 @@ function askWeather() { //function to callback to getWeather
 	console.log(cityQuery);
 	var theURI = baseURI + cityQuery + unitsQuery + apiKey;
 	loadJSON(theURI, getWeather);
+	descr = createP("");
 	giphyQuery = "&q=" + descr;
  	var url = baseGiphy + giphyApiKey + giphyQuery;
 	loadJSON(url, giphyData);
