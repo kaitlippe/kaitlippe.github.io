@@ -6,7 +6,7 @@ var unitsQuery = "&units=metric";
 
 var baseGiphy = "http://api.giphy.com/v1/gifs/search?";
 var giphyApiKey = "&api_key=dc6zaTOxFJmzC";
-var giphyQuery;
+var giphyQuery = "clear skies";
 
 var apiKey = "&appid=a8b35013c0263b6ec52bb3daa41e3be7";
 
@@ -48,7 +48,7 @@ function askWeather() { //function to callback to getWeather
 	console.log(cityQuery);
 	var theURI = baseURI + cityQuery + unitsQuery + apiKey;
 	loadJSON(theURI, getWeather);
-	giphyQuery = "&q=" + descr;
+	// giphyQuery = "&q=" + descr;
  	var url = baseGiphy + giphyApiKey + giphyQuery;
 	loadJSON(url, giphyData);
 }
