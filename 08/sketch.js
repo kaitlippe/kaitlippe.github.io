@@ -39,7 +39,7 @@ function getWeather(data) {
 	cityHeader.html(weatherJSON.name);
 	descr = cityDescr.html(weatherJSON.weather.description); 
 	cityTemp.html(weatherJSON.main.temp + "degrees C");
-	
+	descr = createP("");
 	console.log(cityDescr.html(weatherJSON.weather[0].description));
 	console.log(cityTemp.html(weatherJSON.main.temp + "degrees C"));
 }
