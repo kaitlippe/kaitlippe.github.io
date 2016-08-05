@@ -55,9 +55,9 @@ function getWeather(data) {
 }
 
 function giphyData(giphy){
-	for (var i = 0; i < giphy.data.length; i++) {
+	// for (var i = 0; i < giphy.data.length; i++) {
 		createImg(giphy.data[0].images.original.url);
-	}
+	// }
 }
 
 function draw() {
