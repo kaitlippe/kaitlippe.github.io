@@ -50,7 +50,7 @@ function askWeather() { //function to callback to getWeather
 	console.log(cityQuery);
 	var theURI = baseURI + cityQuery + unitsQuery + apiKey;
 	loadJSON(theURI, getWeather);
-	giphyQuery = "&q=" + cityDescr.p.textContent;
+	giphyQuery = "&q=" + cityDescr.html(p.textContent);
  	var url = baseGiphy + giphyApiKey + giphyQuery;
 	loadJSON(url, giphyData);
 	console.log(giphyQuery);
