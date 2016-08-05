@@ -6,7 +6,7 @@ var unitsQuery = "&units=metric";
 
 var baseGiphy = "http://api.giphy.com/v1/gifs/search?";
 var giphyApiKey = "&api_key=dc6zaTOxFJmzC";
-// var giphyQuery = "&q=" + cityDescr;
+var giphyQuery;
 
 var apiKey = "&appid=a8b35013c0263b6ec52bb3daa41e3be7";
 
@@ -41,7 +41,6 @@ function getWeather(data) {
 	cityTemp.html(weatherJSON.main.temp + "degrees C");
 	
 	console.log(cityDescr.html(weatherJSON.weather[0].description));
-
 }
 
 function askWeather() { //function to callback to getWeather
