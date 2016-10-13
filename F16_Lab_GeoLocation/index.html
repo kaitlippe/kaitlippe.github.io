@@ -62,10 +62,9 @@ if (window.DeviceOrientationEvent){
 	console.log("ERROR: This browser can't detect orientation events");
 }
 
-var rColor = 0;
-var gColor = 0;
-var bColor = 0;
-var cubeColor = new THREE.Color(rColor, gColor, bColor);
+var xAccel = 0;
+var yAccel = 0;
+var zAccel = 0;
 
 //function called when decive motion data updates
 var latestMData;
@@ -80,15 +79,15 @@ var onDeviveMotion = function(data){
 
 	document.getElementById("mData").innerHTML = mText;
 
-	rColor = Math.abs(latestMData.acceleration.x);
-	gColor = Math.abs(latestMData.acceleration.y);
-	bColor = Math.abs(latestMData.acceleration.z);
+	xAccel = Math.abs(latestMData.acceleration.x) * 10;
+	yAccel = Math.abs(latestMData.acceleration.y) * 10;
+	zAccel = Math.abs(latestMData.acceleration.z) * 10;
 }
 
 function createCube(){
 
 	var geometry = new THREE.BoxGeometry(10, 10, 10);
-	var material = new THREE.MeshStandardMaterial({color: cubeColor});
+	var material = new THREE.MeshStandardMaterial({color: 0xFFFFFF});
 	cube = new THREE.Mesh(geometry, material);
 	cube.position.x = 0;
 	cube.position.y = 0;
@@ -99,8 +98,8 @@ function createCube(){
 function animatedRender(){
 	requestAnimationFrame(animatedRender);
 	renderer.render(scene, cam);
-	cube.rotation.x += 0.01;
-	cube.rotation.y += 0.01;
+	cube.rotation.x += xAccel;
+	cube.rotation.y += yAccel;
 }
 
 //setting up our webpage/ app to handle pre-existing js/html5 events
