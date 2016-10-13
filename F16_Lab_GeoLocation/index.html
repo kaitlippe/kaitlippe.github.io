@@ -103,7 +103,7 @@ function animatedRender(){
 	cube.rotation.y += 0.01;
 
 	cam.position.x = 50 + gammaMove;
-	cam.position.y = 50 + alphaMove;
+	cam.position.y = 50 + alphaMove/window.innerWidth;
 	cam.position.z = 50 + betaMove;
 }
 
