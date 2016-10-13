@@ -55,7 +55,7 @@ function init(){
 	ptLight.position.z = 200;
 	scene.add(ptLight);
 
-	cam.position.z = 10 + betaMove;
+	cam.position.z = 50;
 	cam.lookAt(Vec3(0,0,0));
 	scene.add(cam);
 
@@ -101,6 +101,8 @@ function animatedRender(){
 	renderer.render(scene, cam);
 	cube.rotation.x += 0.01;
 	cube.rotation.y += 0.01;
+
+	cam.position.z = 50 + betaMove;
 }
 
 //setting up our webpage/ app to handle pre-existing js/html5 events
