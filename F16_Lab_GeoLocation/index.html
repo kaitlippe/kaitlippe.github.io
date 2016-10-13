@@ -23,6 +23,11 @@ document.body.appendChild(renderer.domElement);
 
 var ptLight = new THREE.PointLight(0xFFFFFF);
 
+
+var xAccel = 0;
+var yAccel = 0;
+var zAccel = 0;
+
 init();
 animatedRender();
 
@@ -36,7 +41,7 @@ function init(){
 	ptLight.position.z = 200;
 	scene.add(ptLight);
 
-	cam.position.z = 50 + yAccel;
+	cam.position.z = 100;
 	cam.lookAt(Vec3(0,0,0));
 	scene.add(cam);
 
@@ -53,6 +58,10 @@ var onOrientationChange = function(data){
 	oText += "Gamma (roll): " + data.gamma + "<br />";
 
 	document.getElementById("oData").innerHTML = oText; 
+
+	xAccel = data.alpha;
+	yAccel = data.beta;
+	zAccel = data.gamma;
 };
 
 //if this browser / device can detect device orientation events...
@@ -61,10 +70,6 @@ if (window.DeviceOrientationEvent){
 } else {
 	console.log("ERROR: This browser can't detect orientation events");
 }
-
-var xAccel = 0;
-var yAccel = 0;
-var zAccel = 0;
 
 //function called when decive motion data updates
 var latestMData;
@@ -78,10 +83,6 @@ var onDeviveMotion = function(data){
 	mText += "Acceleration z: " + data.acceleration.z + "<br />";
 
 	document.getElementById("mData").innerHTML = mText;
-
-	xAccel = data.alpha;
-	yAccel = data.beta;
-	zAccel = data.gamma;
 }
 
 function createCube(){
@@ -89,9 +90,9 @@ function createCube(){
 	var geometry = new THREE.BoxGeometry(10, 10, 10);
 	var material = new THREE.MeshStandardMaterial({color: 0xFFFFFF});
 	cube = new THREE.Mesh(geometry, material);
-	cube.position.x = 0;
-	cube.position.y = 0;
-	cube.position.z = 0;
+	cube.position.x = 0 + xAccel;
+	cube.position.y = 0 + yAccel;
+	cube.position.z = 0 + zAccel;
 	cube.updateMatrix();
 }
 
