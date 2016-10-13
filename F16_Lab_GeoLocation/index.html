@@ -17,6 +17,7 @@ var cam = new THREE.PerspectiveCamera(viewAngle, aspectRatio, near, far);
 var scene = new THREE.Scene();
 var renderer = new THREE.WebGLRenderer();
 var cube;
+var group;
 
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
@@ -60,7 +61,7 @@ function init(){
 	scene.add(cam);
 
 	createCube();
-	scene.add(cube);
+	scene.add(group);
 
 }
 
@@ -86,14 +87,19 @@ var onDeviveMotion = function(data){
 }
 
 function createCube(){
-
 	var geometry = new THREE.BoxGeometry(10, 10, 10);
 	var material = new THREE.MeshStandardMaterial({color: 0xFFFFFF, wireframe: true});
-	cube = new THREE.Mesh(geometry, material);
-	cube.position.x = 0;
-	cube.position.y = 0;
-	cube.position.z = 0;
-	cube.updateMatrix();
+	
+	group = new THREE.Group(); //group of objects
+
+	for(var i = 0; i <100; i++){
+		cube = new THREE.Mesh(geometry, material);
+		cube.position.x = Math.random() * 1000 - 500;
+		cube.position.y = Math.random() * 1000 - 500;
+		cube.position.z = Math.random() * 1000 - 500;
+		cube.updateMatrix();
+		group.add(cube);
+	}
 }
 
 function animatedRender(){
