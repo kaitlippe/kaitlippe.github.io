@@ -41,7 +41,7 @@ function init(){
 	ptLight.position.z = 200;
 	scene.add(ptLight);
 
-	cam.position.z = 100;
+	cam.position.z = 1000;
 	cam.lookAt(Vec3(0,0,0));
 	scene.add(cam);
 
@@ -90,9 +90,9 @@ function createCube(){
 	var geometry = new THREE.BoxGeometry(10, 10, 10);
 	var material = new THREE.MeshStandardMaterial({color: 0xFFFFFF});
 	cube = new THREE.Mesh(geometry, material);
-	cube.position.x = 0 + xAccel;
-	cube.position.y = 0 + yAccel;
-	cube.position.z = 0 + zAccel;
+	cube.position.x = 0 + (xAccel/window.innerWidth);
+	cube.position.y = 0 + (yAccel/window.innerHeight);
+	cube.position.z = 0 + Math.abs(zAccel);
 	cube.updateMatrix();
 }
 
