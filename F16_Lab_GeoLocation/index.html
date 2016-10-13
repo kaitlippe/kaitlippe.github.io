@@ -94,9 +94,9 @@ function createCube(){
 
 	for(var i = 0; i <100; i++){
 		cube = new THREE.Mesh(geometry, material);
-		cube.position.x = Math.random() * 200 - 100;
-		cube.position.y = Math.random() * 200 - 100;
-		cube.position.z = Math.random() * 200 - 100;
+		cube.position.x = Math.random() * 100;
+		cube.position.y = Math.random() * 100;
+		cube.position.z = Math.random() * 100;
 		cube.updateMatrix();
 		group.add(cube);
 	}
