@@ -9,36 +9,74 @@
 </body>
 <script>
 
-var onOrientationChange = function(data){ //function called when the device orientation chnages
-	console.log('NEW DEVICE ORIENTATION DATA!:');
-	console.log(data);
+var viewAngle = 75;
+var aspectRatio = window.innerWidth / window.innerHeight;
+var near = 10;
+var far = 2500;
+var cam = new THREE.PerspectiveCamera(viewAngle, aspectRatio, near, far);
+var scene = new THREE.Scene();
+var renderer = new THREE.WebGLRenderer();
+var cube;
 
+var ptLight = new THREE.PointLight(0xFFFFFF);
+
+init();
+animatedRender();
+
+var Vec3 = function(x,y,z){
+	return new THREE.Vector3(x,y,z);
+};
+
+function init(){
+	ptLight.position.x = 10;
+	ptLight.position.y = 50;
+	ptLight.position.z = 130;
+
+	scene.add(ptLight);
+	cam.position.y = 500;
+	cam.position.z = 1500;
+
+	cam.lookAt(Vec3(0,0,0));
+	scene.add(cam);
+}
+
+var onOrientationChange = function(data){ 
 	var oText = "ORIENTATION DATA: <br />";
 
 	oText += "Alpha (yaw): " + data.alpha + "<br />";
 	oText += "Beta (pitch): " + data.beta + "<br />";
 	oText += "Gamma (roll): " + data.gamma + "<br />";
-	// for (var key in data){ //for every kay in our data do a thing
-	// 	oText += key + ": " + data[key] + "<br />"; //key plus data value for that key
-	// }
-	document.getElementById("oData").innerHTML = oText; //display the oText to webpage
+
+	document.getElementById("oData").innerHTML = oText; 
 };
 
 //if this browser / device can detect device orientation events...
 if (window.DeviceOrientationEvent){
-	//add an event listener that calls the "onOrientationChange" function whenever the device's orientation data changes
 	window.addEventListener('deviceorientation',onOrientationChange,false);
 } else {
 	console.log("ERROR: This browser can't detect orientation events");
 }
 
-//you can us threejs to make an object based on the data : new Vector3(latestMData.acceleration.x, latestMData.acceleration.y, latestMData.acceleration.z)
+function createCube(){
+	// var rColor = Math.abs(latestMData.acceleration.x);
+	// var gColor = Math.abs(latestMData.acceleration.y);
+	// var bColor = Math.abs(latestMData.acceleration.z);
+	// var cubeColor = new THREE.Color(rColor, gColor, bColor);
+
+	var geometry = new THREE.BoxGeometry( 5, 5, 5);
+	var material = new THREE.MeshBasicMaterial({color: 0x00ff00});
+	cube = new THREE.Mesh(geometry, material);
+	scene.add(cube);
+}
+
+function animatedRender(){
+	requestAnimationFrame(animatedRender);
+	 renderer.render(scene, cam);
+}
 
 //function called when decive motion data updates
 var latestMData;
 var onDeviveMotion = function(data){
-	console.log(data);
-
 	latestMData = data;
 
 	var mText = "MOTION DATA: <br />";
@@ -56,7 +94,6 @@ if (window.DeviceMotionEvent){
 } else {
 	console.log("ERROR: browser cant detet device motion");
 }
-
 
 </script>
 </html>
