@@ -36,13 +36,13 @@ function Vec3(x, y, z){
 };
 
 var onOrientationChange = function(data){ 
-	var oText = "ORIENTATION DATA: <br />";
+	// var oText = "ORIENTATION DATA: <br />";
 
-	oText += "Alpha (yaw): " + data.alpha + "<br />";
-	oText += "Beta (pitch): " + data.beta + "<br />";
-	oText += "Gamma (roll): " + data.gamma + "<br />";
+	// oText += "Alpha (yaw): " + data.alpha + "<br />";
+	// oText += "Beta (pitch): " + data.beta + "<br />";
+	// oText += "Gamma (roll): " + data.gamma + "<br />";
 
-	document.getElementById("oData").innerHTML = oText; 
+	// document.getElementById("oData").innerHTML = oText; 
 
 	alphaMove = data.alpha;
 	betaMove = data.beta;
@@ -76,11 +76,11 @@ var latestMData;
 var onDeviveMotion = function(data){
 	latestMData = data;
 
-	var mText = "MOTION DATA: <br />";
+	// var mText = "MOTION DATA: <br />";
 
-	mText += "Acceleration x: " + data.acceleration.x + "<br />";
-	mText += "Acceleration y: " + data.acceleration.y + "<br />";
-	mText += "Acceleration z: " + data.acceleration.z + "<br />";
+	// mText += "Acceleration x: " + data.acceleration.x + "<br />";
+	// mText += "Acceleration y: " + data.acceleration.y + "<br />";
+	// mText += "Acceleration z: " + data.acceleration.z + "<br />";
 
 	document.getElementById("mData").innerHTML = mText;
 }
