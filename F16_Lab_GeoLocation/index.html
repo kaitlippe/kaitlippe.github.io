@@ -11,14 +11,17 @@
 
 var viewAngle = 75;
 var aspectRatio = window.innerWidth / window.innerHeight;
-var near = 10;
-var far = 2500;
+var near = 1;
+var far = 1000;
 var cam = new THREE.PerspectiveCamera(viewAngle, aspectRatio, near, far);
 var scene = new THREE.Scene();
 var renderer = new THREE.WebGLRenderer();
 var cube;
 
 var ptLight = new THREE.PointLight(0xFFFFFF);
+
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
 
 init();
 animatedRender();
@@ -33,11 +36,13 @@ function init(){
 	ptLight.position.z = 130;
 
 	scene.add(ptLight);
-	cam.position.y = 500;
-	cam.position.z = 1500;
-
+	cam.position.z = 1000;
 	cam.lookAt(Vec3(0,0,0));
 	scene.add(cam);
+
+	createCube();
+	scene.add(cube);
+
 }
 
 var onOrientationChange = function(data){ 
@@ -66,7 +71,10 @@ function createCube(){
 	var geometry = new THREE.BoxGeometry( 5, 5, 5);
 	var material = new THREE.MeshBasicMaterial({color: 0x00ff00});
 	cube = new THREE.Mesh(geometry, material);
-	scene.add(cube);
+	cube.position.x = 0;
+	cube.position.y = 10;
+	cube.position.z = 0;
+	cube.updateMatrix();
 }
 
 function animatedRender(){
