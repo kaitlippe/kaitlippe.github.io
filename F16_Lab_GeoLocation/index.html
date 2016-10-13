@@ -100,7 +100,7 @@ function animatedRender(){
 	requestAnimationFrame(animatedRender);
 	renderer.render(scene, cam);
 	cube.rotation.x += alphaMove*0.01;
-	cube.rotation.y += alphaMove;*0.01;
+	cube.rotation.y += alphaMove*0.01;
 
 	cam.position.x = 0 + gammaMove;
 	cam.position.z = 50 + betaMove;
