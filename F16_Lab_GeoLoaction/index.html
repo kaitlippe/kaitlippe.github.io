@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<p id="oData">ORIENTATION DATA: </p>
+<p id="mData">MOTION DATA:</p>
+</body>
+<script>
+
+var onOrientationChange = function(data){ //function called when the device orientation chnages
+	console.log('NEW DEVICE ORIENTATION DATA!:');
+	console.log(data);
+
+	var oText = "ORIENTATION DATA: <br />";
+
+	oText += "Alpha (yaw): " + data.alpha + "<br />";
+	oText += "Beta (pitch): " + data.beta + "<br />";
+	oText += "Gamma (roll): " + data.gamma + "<br />";
+	// for (var key in data){ //for every kay in our data do a thing
+	// 	oText += key + ": " + data[key] + "<br />"; //key plus data value for that key
+	// }
+	document.getElementById("oData").innerHTML = oText; //display the oText to webpage
+};
+
+//if this browser / device can detect device orientation events...
+if (window.DeviceOrientationEvent){
+	//add an event listener that calls the "onOrientationChange" function whenever the device's orientation data changes
+	window.addEventListener('deviceorientation',onOrientationChange,false);
+} else {
+	console.log("ERROR: This browser can't detect orientation events");
+}
+
+//you can us threejs to make an object based on the data : new Vector3(latestMData.acceleration.x, latestMData.acceleration.y, latestMData.acceleration.z)
+
+//function called when decive motion data updates
+var latestMData;
+var onDeviveMotion = function(data){
+	console.log(data);
+
+	latestMData = data;
+
+	var mText = "MOTION DATA: <br />";
+
+	mText += "Acceleration x: " + data.acceleration.x + "<br />";
+	mText += "Acceleration y: " + data.acceleration.y + "<br />";
+	mText += "Acceleration z: " + data.acceleration.z + "<br />";
+
+	document.getElementById("mData").innerHTML = mText;
+}
+
+//setting up our webpage/ app to handle pre-existing js/html5 events
+if (window.DeviceMotionEvent){
+	window.addEventListener('devicemotion', onDeviveMotion, false)
+} else {
+	console.log("ERROR: browser cant detet device motion");
+}
+
+
+</script>
+</html>
