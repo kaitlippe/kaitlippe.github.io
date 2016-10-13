@@ -87,12 +87,12 @@ var onDeviveMotion = function(data){
 
 function createCube(){
 
-	var geometry = new THREE.BoxGeometry(10, 10, 10);
+	var geometry = new THREE.BoxGeometry(xAccel, yAccel, Math.abs(zAccel));
 	var material = new THREE.MeshStandardMaterial({color: 0xFFFFFF});
 	cube = new THREE.Mesh(geometry, material);
-	cube.position.x = 0 + (xAccel/window.innerWidth);
-	cube.position.y = 0 + (yAccel/window.innerHeight);
-	cube.position.z = 0 + Math.abs(zAccel);
+	cube.position.x = 0;
+	cube.position.y = 0;
+	cube.position.z = 0;
 	cube.updateMatrix();
 }
 
