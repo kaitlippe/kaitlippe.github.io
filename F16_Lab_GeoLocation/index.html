@@ -36,7 +36,7 @@ function init(){
 	ptLight.position.z = 200;
 	scene.add(ptLight);
 
-	cam.position.z = zAccel;
+	cam.position.z = 50 + yAccel;
 	cam.lookAt(Vec3(0,0,0));
 	scene.add(cam);
 
@@ -79,9 +79,9 @@ var onDeviveMotion = function(data){
 
 	document.getElementById("mData").innerHTML = mText;
 
-	xAccel = Math.abs(latestMData.acceleration.x) * 10;
-	yAccel = Math.abs(latestMData.acceleration.y) * 10;
-	zAccel = Math.abs(latestMData.acceleration.z) * 10;
+	xAccel = data.alpha;
+	yAccel = data.beta;
+	zAccel = data.gamma;
 }
 
 function createCube(){
