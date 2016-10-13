@@ -24,7 +24,7 @@ document.body.appendChild(renderer.domElement);
 var ptLight = new THREE.PointLight(0xFFFFFF);
 
 
-var alphaColor;
+var alphaMove;
 var betaMove;
 var gammaMove;
 
@@ -44,7 +44,7 @@ var onOrientationChange = function(data){
 
 	document.getElementById("oData").innerHTML = oText; 
 
-	alphaColor = Math.floor(data.alpha)*0.001;
+	alphaMove = data.alpha;
 	betaMove = data.beta;
 	gammaMove = data.gamma;
 };
@@ -86,10 +86,9 @@ var onDeviveMotion = function(data){
 }
 
 function createCube(){
-	var newColor = new THREE.Color(alphaColor, alphaColor, alphaColor)
 
 	var geometry = new THREE.BoxGeometry(10, 10, 10);
-	var material = new THREE.MeshStandardMaterial({color: newColor});
+	var material = new THREE.MeshStandardMaterial({color: 0xFFFFFF});
 	cube = new THREE.Mesh(geometry, material);
 	cube.position.x = 0;
 	cube.position.y = 0;
