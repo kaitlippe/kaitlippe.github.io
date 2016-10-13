@@ -36,7 +36,7 @@ function init(){
 	ptLight.position.z = 200;
 	scene.add(ptLight);
 
-	cam.position.z = 50;
+	cam.position.z = zAccel;
 	cam.lookAt(Vec3(0,0,0));
 	scene.add(cam);
 
@@ -98,8 +98,8 @@ function createCube(){
 function animatedRender(){
 	requestAnimationFrame(animatedRender);
 	renderer.render(scene, cam);
-	cube.rotation.x += xAccel;
-	cube.rotation.y += yAccel;
+	cube.rotation.x += 0.01;
+	cube.rotation.y += 0.01;
 }
 
 //setting up our webpage/ app to handle pre-existing js/html5 events
